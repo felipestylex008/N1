@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Visualizador de PDF</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      padding-top: 35px;
+      padding-left: 10px;
+      background: #11192e;
+
+    }
+    iframe {
+      border: none;
+      width: 100%;
+      height: 100%;
+    }
+
+    
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: #0f172a;
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: white;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin-left: 20px;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    nav a:hover {
+      color: #38bdf8;
+    }
+
+    table {
+    width: 90%;
+    border-collapse: collapse;
+    background-color: #1e293b;
+    color: white;
+    margin-top: 20px;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  th, td {
+    padding: 12px 16px;
+    text-align: left;
+  }
+
+  th {
+    background-color: #334155;
+    font-weight: bold;
+  }
+
+  tr:nth-child(even) {
+    background-color: #2d3748;
+  }
+
+  tr:hover {
+    background-color: #475569;
+  }
+
+  h2 {
+    color: white;
+  }
+  </style>
+</head>
+<body>
+   <header>
+    <div><strong>Soluções N1</strong></div>
+    <nav>
+      <a href="index.html">Início</a>
+      <a href="ramais.html">Ramal  </a>
+      <a href="https://docs.google.com/spreadsheets/d/1-y-Xb77HdgYfvZ3DJQCwafZWSYdxapnR/edit?rtpof=true&gid=1013945962#gid=1013945962" target="_blank">Escala</a>
+      <a href="https://docs.google.com/spreadsheets/d/1MO0whIF8DNLFTuG8bpOoZvM0y8ZAOBCLsHxd6ngGaeY/edit?gid=0#gid=0" target="_blank">Viabilidade</a>
+      <a href="./PDFs/como funciona os aplicativos.txt" download>Infos aplicativos</a>
+      <a href="./PDFs/SCRIPTS ATUALIZADOS.txt" download>Scripts</a>
+    </nav>
+  </header>
+
+  <h2>
+    Ramais do CRRC
+  </h2>
+  <table border="1">
+  <thead>
+    <tr>
+      <th>Ramal</th>
+      <th>Nome</th>
+      <th>Cargo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1044</td>
+      <td>Deyse</td>
+      <td>Líder</td>
+    </tr>
+    <tr>
+      <td>1088 </td>
+      <td>Isabella</td>
+      <td>Supervisora</td>
+    </tr>
+    <tr>
+      <td>1034</td>
+      <td>Francielly</td>
+      <td>Crrc</td>
+    </tr>
+    <tr>
+      <td>1009</td>
+      <td>Damires</td>
+      <td>Crrc</td>
+    </tr>
+    <tr>
+      <td>1033 </td>
+      <td>Alicia</td>
+      <td>Crrc</td>
+    </tr>
+    <tr>
+      <td>1015  </td>
+      <td>Luyza</td>
+      <td>Crrc</td>
+    </tr>
+  </tbody>
+</table>
+
+
+  <h2>
+    Ramais dos Frente de loja
+  </h2>
+
+<table border="1">
+  <thead>
+    <tr>
+      <th>Ramal  </th>
+      <th>Nome</th>
+      <th>Cidade  </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1001</td>
+      <td>Alanderson</td>
+      <td>Vitória</td>
+    </tr>
+    <tr>
+      <td>1002</td>
+      <td>Yara</td>
+      <td>Alto Alegre</td>
+    </tr>
+    <tr>
+      <td>1003</td>
+      <td>Lauane</td>
+      <td>Bom jardim</td>
+    </tr>
+    <tr>
+      <td>1005</td>
+      <td>Shayane</td>
+      <td>	Zé Doca</td>
+    </tr>
+    <tr>
+      <td>1006</td>
+      <td>Anderson</td>
+      <td>Bom Jardim</td>
+    </tr>
+    <tr>
+      <td>1014</td>
+      <td>....</td>
+      <td>Santa Inês</td>
+    </tr>
+    <tr>
+      <td>1025</td>
+      <td>....</td>
+      <td>Santa Inês</td>
+    </tr>
+    <tr>
+      <td>1019</td>
+      <td>....</td>
+      <td>Santa Inês</td>
+    </tr>
+    <tr>
+      <td>1028</td>
+      <td>....</td>
+      <td>Santa Inês</td>
+    </tr>
+    <tr>
+      <td>1037</td>
+      <td>Rayssa</td>
+      <td>tufilandia</td>
+    </tr>
+    <tr>
+      <td>1039</td>
+      <td>Glória</td>
+      <td>Newton Belo</td>
+    </tr>
+    <tr>
+      <td>1042</td>
+      <td>Joyce</td>
+      <td>Monção</td>
+    </tr>
+    <tr>
+      <td>1046</td>
+      <td>Edvaldo</td>
+      <td>Igarapé do Meio</td>
+    </tr>
+    <tr>
+      <td>1007</td>
+      <td>Daniele</td>
+      <td>Igarapé do Meio</td>
+    </tr>
+    <tr>
+      <td>1047</td>
+      <td>Samara</td>
+      <td>São joao do Carú</td>
+    </tr>
+    <tr>
+      <td>1049</td>
+      <td>Ana Caroline	</td>
+      <td>Bela Vista</td>
+    </tr>
+    <tr>
+      <td>1057</td>
+      <td>Mikaely</td>
+      <td>pio XII</td>
+    </tr>
+    <tr>
+      <td>1064</td>
+      <td>Luana	</td>
+      <td>Santa Luzia</td>
+    </tr>
+  </tbody>
+</table>
+  
+</body>
+</html>
