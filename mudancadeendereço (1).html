@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Mudança de Endereço - Cliente Fibra</title>
+  <style>
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+    }
+
+
+
+
+    .container {
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      max-width: 800px;
+      margin: auto;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    h2, h3 {
+      color: #4CAF50;
+    }
+
+    label {
+      font-weight: bold;
+      display: block;
+      margin-top: 10px;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    #outputContainer {
+      margin-top: 30px;
+    }
+
+    #output {
+      white-space: pre-wrap;
+    }
+
+    .copy-success {
+      color: green;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: #0f172a;
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: white;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin-left: 20px;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    nav a:hover {
+      color: #38bdf8;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+    <div><strong>Soluções N1</strong></div>
+    <nav>
+      <a href="index.html">Início</a>
+      <a href="ramais.html">Ramal  </a>
+      <a href="https://docs.google.com/spreadsheets/d/1-y-Xb77HdgYfvZ3DJQCwafZWSYdxapnR/edit?rtpof=true&gid=1013945962#gid=1013945962" target="_blank">Escala</a>
+      <a href="https://docs.google.com/spreadsheets/d/1MO0whIF8DNLFTuG8bpOoZvM0y8ZAOBCLsHxd6ngGaeY/edit?gid=0#gid=0" target="_blank">Viabilidade</a>
+      <a href="./PDFs/como funciona os aplicativos.txt" download>Aplicativos</a>
+      <a href="./PDFs/SCRIPTS ATUALIZADOS.txt" download>Scripts</a>
+      <a href="./mudancadeendereço (1).html">Mudança Endereço</a>
+    </nav>
+  </header>
+
+  <div class="container">
+    <h2>📦 Mudança de Endereço - Cliente Fibra</h2>
+
+    <!-- FORMULÁRIO -->
+    <form id="form">
+      <h3>📍 Endereço Antigo</h3>
+      <label>Cidade:</label>
+      <input type="text" id="cidadeAntiga" value="Bom Jardim/MA">
+
+      <label>Rua:</label>
+      <input type="text" id="ruaAntiga">
+
+      <label>Bairro:</label>
+      <input type="text" id="bairroAntigo">
+
+      <label>Número da casa:</label>
+      <input type="text" id="numeroAntigo">
+
+      <label>Ponto de referência:</label>
+      <textarea id="referenciaAntiga" rows="2"></textarea>
+
+      <h3>🏠 Endereço Novo</h3>
+      <label>Cidade:</label>
+      <input type="text" id="cidadeNova" value="Bom Jardim/MA">
+
+      <label>Rua:</label>
+      <input type="text" id="ruaNova">
+
+      <label>Bairro:</label>
+      <input type="text" id="bairroNovo">
+
+      <label>Número da casa:</label>
+      <input type="text" id="numeroNovo">
+
+      <label>Pontos de referência:</label>
+      <textarea id="referenciaNova" rows="2"></textarea>
+
+      <h3>📞 Contato</h3>
+      <label>Número(s) de contato:</label>
+      <input type="text" id="contato">
+
+      <h3>💳 Pagamento</h3>
+      <label>Parcelamento (vezes):</label>
+      <input type="text" id="parcelas">
+
+      <label>Vencimento do boleto (dia):</label>
+      <input type="text" id="vencimento">
+
+      <button type="button" onclick="gerarAnotacao()">Gerar Anotação</button>
+    </form>
+
+    <!-- SAÍDA E BOTÃO DE CÓPIA -->
+    <div id="outputContainer" style="display: none;">
+      <h3>📄 Anotação HTML Gerada</h3>
+      <textarea id="output" rows="30" style="width: 100%; font-family: monospace;"></textarea>
+      <button onclick="copiarAnotacao()">📋 Copiar HTML Gerado</button>
+      <div id="copyMessage" class="copy-success"></div>
+    </div>
+  </div>
+
+  <script>
+    function gerarAnotacao() {
+      const cidadeAntiga = document.getElementById("cidadeAntiga").value;
+      const ruaAntiga = document.getElementById("ruaAntiga").value;
+      const bairroAntigo = document.getElementById("bairroAntigo").value;
+      const numeroAntigo = document.getElementById("numeroAntigo").value;
+      const referenciaAntiga = document.getElementById("referenciaAntiga").value;
+
+      const cidadeNova = document.getElementById("cidadeNova").value;
+      const ruaNova = document.getElementById("ruaNova").value;
+      const bairroNovo = document.getElementById("bairroNovo").value;
+      const numeroNovo = document.getElementById("numeroNovo").value;
+      const referenciaNova = document.getElementById("referenciaNova").value;
+
+      const contato = document.getElementById("contato").value;
+      const parcelas = document.getElementById("parcelas").value;
+      const vencimento = document.getElementById("vencimento").value;
+
+      const html = `
+<div style="font-family: Arial, sans-serif; border: 2px solid #4CAF50; padding: 20px; border-radius: 10px; background-color: #f9fff9; color: #333; max-width: 600px; margin: 0 auto;">
+
+  <h2 style="color: #4CAF50; text-align: center;">📦 MUDANÇA DE ENDEREÇO</h2>
+
+  <h3 style="color: #f44336;">📍 ENDEREÇO ANTIGO</h3>
+  <p><strong>Cidade:</strong> ${cidadeAntiga}</p>
+  <p><strong>Rua:</strong> ${ruaAntiga}</p>
+  <p><strong>Bairro:</strong> ${bairroAntigo}</p>
+  <p><strong>Número da Casa:</strong> ${numeroAntigo}</p>
+  <p><strong>Ponto de Referência:</strong> ${referenciaAntiga}</p>
+
+  <hr style="margin: 20px 0; border: 1px dashed #ccc;">
+
+  <h3 style="color: #2196F3;">🏠 ENDEREÇO NOVO</h3>
+  <p><strong>Cidade:</strong> ${cidadeNova}</p>
+  <p><strong>Rua:</strong> ${ruaNova}</p>
+  <p><strong>Bairro:</strong> ${bairroNovo}</p>
+  <p><strong>Número da Casa:</strong> ${numeroNovo}</p>
+  <p><strong>Dois Pontos de Referência:</strong> ${referenciaNova}</p>
+
+  <hr style="margin: 20px 0; border: 1px dotted #aaa;">
+
+  <h3 style="color: #FF9800;">📞 CONTATO</h3>
+  <p><strong>Número(s):</strong> ${contato}</p>
+
+  <h3 style="color: #9C27B0;">💳 FORMA DE PAGAMENTO</h3>
+  <p><strong>Pagamento em:</strong> ${parcelas} vez(es)</p>
+  <p><strong>Vencimento do boleto:</strong> Todo dia ${vencimento}</p>
+
+</div>
+`;
+
+      document.getElementById("output").value = html;
+      document.getElementById("outputContainer").style.display = "block";
+      document.getElementById("copyMessage").innerText = "";
+    }
+
+    function copiarAnotacao() {
+      const output = document.getElementById("output");
+      output.select();
+      document.execCommand("copy");
+      document.getElementById("copyMessage").innerText = "✅ HTML copiado com sucesso!";
+    }
+  </script>
+</body>
+</html>
